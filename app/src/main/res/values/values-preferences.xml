@@ -41,7 +41,15 @@
 		<item>wpt_name</item>
 		<item>wpt_cmt</item>
 	</string-array>
-	
+
+	<!-- Same values and positions as db.model.Track.OSMVisibility enum declaration -->
+	<string-array name="prefs_osm_vis_default_values">
+		<item>Private</item>
+		<item>Public</item>
+		<item>Trackable</item>
+		<item>Identifiable</item>
+	</string-array>
+
 	<string-array name="prefs_map_tile_values">
 		<item>MAPNIK</item>
 		<item>CYCLEMAP</item>

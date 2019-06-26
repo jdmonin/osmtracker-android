@@ -8,6 +8,7 @@ import net.osmtracker.R;
 import net.osmtracker.db.DataHelper;
 import net.osmtracker.db.TrackContentProvider;
 import net.osmtracker.db.TracklistAdapter;
+import net.osmtracker.db.model.Track;
 import net.osmtracker.exception.CreateTrackException;
 import net.osmtracker.gpx.ExportToStorageTask;
 import net.osmtracker.util.FileSystemUtils;
@@ -499,9 +500,19 @@ public class TrackManager extends ListActivity {
 	 */
 	private long createNewTrack() throws CreateTrackException {
 		Date startDate = new Date();
-		
-		// Create entry in TRACK table
 		ContentValues values = new ContentValues();
+
+		// Set visibility from preference
+		String visPref = PreferenceManager.getDefaultSharedPreferences(this).getString
+			(OSMTracker.Preferences.KEY_OSM_VISIBILITY_DEFAULT, OSMTracker.Preferences.VAL_OSM_VISIBILITY_DEFAULT);
+		try {
+			Track.OSMVisibility vis = Track.OSMVisibility.valueOf(visPref);
+			values.put(TrackContentProvider.Schema.COL_OSM_VISIBILITY, vis.toString());
+		} catch (IllegalArgumentException e) {
+			// bad pref value; use default visibility from TRACK table declaration
+		}
+
+		// Create entry in TRACK table
 		values.put(TrackContentProvider.Schema.COL_NAME, "");
 		values.put(TrackContentProvider.Schema.COL_START_DATE, startDate.getTime());
 		values.put(TrackContentProvider.Schema.COL_ACTIVE, TrackContentProvider.Schema.VAL_TRACK_ACTIVE);

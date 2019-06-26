@@ -99,7 +99,16 @@
 	<string name="prefs_osm_clear_oauth_data">Reset OSM authentication</string>
 	<string name="prefs_osm_clear_oauth_data_summary">Forget OSM credentials and permissions and force OSMTracker to ask them again</string>
 	<string name="prefs_osm_clear_oauth_data_dialog">You\'ll have to authorize OSMTracker to upload tracks again. Are you sure?</string>
-	
+
+	<string name="prefs_osm_vis_default">Default OSM visibility</string>
+	<string name="prefs_osm_vis_default_summary">Default visibility to use when uploading a new track</string>
+	<string-array name="prefs_osm_vis_default_keys">
+		<item>@string/osm_visibility_private</item>
+		<item>@string/osm_visibility_public</item>
+		<item>@string/osm_visibility_trackable</item>
+		<item>@string/osm_visibility_identifiable</item>
+	</string-array>
+
 	<string name="prefs_map_tile">Map Tile provider</string>
 	<string name="prefs_map_tile_summary"></string>
 	<string-array name="prefs_map_tile_keys">

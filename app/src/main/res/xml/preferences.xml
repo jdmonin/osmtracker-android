@@ -14,7 +14,14 @@
 	<com.android.internal.preference.YesNoPreference android:key="osm.oauth.clear-data"
 		android:title="@string/prefs_osm_clear_oauth_data" android:summary="@string/prefs_osm_clear_oauth_data_summary"
 		android:dialogMessage="@string/prefs_osm_clear_oauth_data_dialog" android:dialogIcon="@android:drawable/ic_dialog_alert" />
-	
+	<ListPreference
+		android:defaultValue="Private"
+		android:key="osm.vis_default"
+		android:title="@string/prefs_osm_vis_default"
+		android:summary="@string/prefs_osm_vis_default_summary"
+		android:entries="@array/prefs_osm_vis_default_keys"
+		android:entryValues="@array/prefs_osm_vis_default_values" />
+
 	<PreferenceCategory android:title="@string/prefs_gps">
 		<Preference
 			android:summary="@string/prefs_gps_os_settings_summary"
